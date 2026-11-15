@@ -2,6 +2,18 @@
 
 Notebooks for the course **Data Analytics and Financial Modeling**, MSc Finance & Investment Banking, Grenoble Ecole de Management.
 
+## Welcome
+
+Welcome to Data Analytics and Financial Modeling!
+
+In this course you'll learn Python by using it on real finance problems: valuing a company, measuring the risk of a portfolio, pulling numbers from company reports into Excel. By the end, you'll be able to build these tools yourself and check that their numbers are right. You don't need any programming experience: we start from zero, with AI as a helper along the way.
+
+The course has two parts. The first sessions are the foundations: Python through finance problems, one question per session. Then come the projects, which you'll pick together as a class, from case studies in corporate finance, markets and automation.
+
+**Before Session 1, read [Getting set up](getting-set-up.md).** Part 1 takes 5 minutes and gets you into Google Colab, where we do all the work: there's nothing to install. Part 2 is only for some projects later on, so you can skip it for now.
+
+If there's an area of finance you'd especially like to work on, tell me in class. Your ideas will help shape the projects.
+
 ## How to use a notebook
 
 1. Click the **Open in Colab** link of the notebook (on Moodle or in the table below).
