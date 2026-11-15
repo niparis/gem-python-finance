@@ -48,9 +48,3 @@ Two one-page references. A new section is added every session.
 
 - [Python card](python-card.md): what each piece of Python means
 - [Checks card](checks-card.md): how to know a number is right
-
-## Rules for AI
-
-- AI is allowed and expected. You must be able to explain every line you submit.
-- Some exercises are done without AI.
-- Never paste confidential data into a public AI tool.
