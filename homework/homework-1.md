@@ -125,4 +125,4 @@ files.download("decks.zip")
 
 ## How it is graded
 
-Correct decks, checks that pass, and clear comments. Not the amount of code.
+Correct decks, checks that pass, and clear comments.

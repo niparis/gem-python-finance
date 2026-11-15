@@ -96,4 +96,4 @@ Each check is a cell that prints the result and stops with an error if it fails.
 
 ## How it is graded
 
-Correct numbers, checks that pass, an email that answers the question. Not the amount of code.
+Correct numbers, checks that pass, an email that answers the question.

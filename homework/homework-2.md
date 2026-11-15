@@ -84,4 +84,4 @@ For each peer, compute the annual volatility of daily returns (Session 3: 252 tr
 
 ## How it is graded
 
-Correct numbers, checks that pass, a clear answer to the MD. Not the amount of code.
+Correct numbers, checks that pass, a clear answer to the MD.
