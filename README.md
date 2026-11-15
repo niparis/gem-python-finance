@@ -15,6 +15,14 @@ Data files are in `data/`. The notebooks load them directly from this repo.
 | Session | Notebook |
 |---|---|
 | 0 | coming soon |
+| 1 | 1a Time value of money: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1a_time_value_of_money.ipynb)<br>1b Company A: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1b_company_a.ipynb)<br>1c Company B: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1c_company_b.ipynb) |
+
+## Cards
+
+Two one-page references. A new section is added every session.
+
+- [Python card](python-card.md): what each piece of Python means
+- [Checks card](checks-card.md): how to know a number is right
 
 ## Rules for AI
 
