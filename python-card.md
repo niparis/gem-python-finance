@@ -38,3 +38,48 @@ Read the last line first, then find the arrow `---->`, then ask: which value is 
 | `TypeError` | wrong kind of value | `1 + "7%"`: a number and text |
 | `ZeroDivisionError` | divided by 0 | `r - g` when g = r |
 | `ValueError` | a value that makes no sense (here: raised by your own guard) | g >= r in Gordon growth |
+
+## Session 2: NumPy, through portfolio risk
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Import** | `import numpy as np` | load a toolbox, call it `np` | arrays and maths |
+| **Array** | `np.array([0.2, 0.3, 0.5])` | numbers you compute with at once | weights, vols, returns |
+| **Vectorized operation** | `w * ret` | value by value, no loop | each fund's contribution |
+| **Sum** | `np.sum(w * ret)` | add all values | portfolio return |
+| **Matrix product** | `w @ cov @ w` | rows times columns | portfolio variance |
+| **2D array + index** | `corr[0, 2]` | row, column (from 0) | correlation of A and C |
+| **Diagonal matrix** | `np.diag(vol)` | vols on the diagonal, 0 elsewhere | build the covariance |
+| **Square root** | `np.sqrt(var)` | variance to volatility | portfolio volatility |
+| **Random generator + seed** | `np.random.default_rng(42)` | random numbers, the same every run | simulations |
+| **Shape** | `size=(252, 5000)` | 252 rows, 5,000 columns | days x paths |
+
+### More NumPy used in the notebooks
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Product down a column** | `np.prod(1 + daily, axis=0)` | multiply the rows of each column | value after a year, one per path |
+| **Running product** | `np.cumprod(1 + daily, axis=0)` | multiply as you go down | value of the fund day after day |
+| **Median, percentile** | `np.median(final)`, `np.percentile(final, 5)` | the middle value; the value 5% of paths end below | typical year, bad year |
+| **Comparison + mean** | `(final < 100).mean()` | True/False for each path; the mean is the share of True | chance of a loss |
+| **Ones, full, fill diagonal** | `np.ones((3, 3))`, `np.full((3, 3), 0.9)`, `np.fill_diagonal(m, 1.0)` | arrays built from one value | known case, crisis correlations |
+| **Round** | `np.round(cov, 4)` | show 4 decimals | a readable matrix |
+
+### Functions on arrays
+
+One formula, any portfolio. The guard stops the code if the weights do not sum to 1.
+
+```
+def portfolio_vol(weights, vol, corr):
+    if round(np.sum(weights), 6) != 1:
+        raise ValueError("Weights must sum to 1.")
+    cov = np.diag(vol) @ corr @ np.diag(vol)
+    return np.sqrt(weights @ cov @ weights)
+```
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Function** | `def portfolio_vol(weights, vol, corr):` | one formula, any portfolio | return and risk of any weights |
+| **Guard** | `if ...: raise ValueError(...)` | stop if the weights do not sum to 1 | no result is better than a wrong one |
+| **round** | `round(np.sum(weights), 6)` | `0.7 + 0.2 + 0.1` gives 0.9999999999999999: never test decimals with `==` | the weights test |
+| **Known case** | `corr = np.ones((3, 3))` | a check you can always run | all correlations 1 gives the weighted average |
