@@ -14,7 +14,7 @@ Data files are in `data/`. The notebooks load them directly from this repo.
 
 | Session | Notebook |
 |---|---|
-| 0 | coming soon |
+| 0 | Live demo, Apple diluted EPS from SEC filings: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-0/apple_eps_demo.ipynb) |
 | 1 | 1a Time value of money: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1a_time_value_of_money.ipynb)<br>1b Company A: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1b_company_a.ipynb)<br>1c Company B: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-1/1c_company_b.ipynb) |
 | 2 | 2a From lists to arrays: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-2/2a_from_lists_to_arrays.ipynb)<br>2b Client portfolio: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-2/2b_client_portfolio.ipynb)<br>2c Minimum risk: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-2/2c_minimum_risk.ipynb) |
 
