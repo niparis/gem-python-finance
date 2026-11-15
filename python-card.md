@@ -83,3 +83,43 @@ def portfolio_vol(weights, vol, corr):
 | **Guard** | `if ...: raise ValueError(...)` | stop if the weights do not sum to 1 | no result is better than a wrong one |
 | **round** | `round(np.sum(weights), 6)` | `0.7 + 0.2 + 0.1` gives 0.9999999999999999: never test decimals with `==` | the weights test |
 | **Known case** | `corr = np.ones((3, 3))` | a check you can always run | all correlations 1 gives the weighted average |
+
+## Session 3: pandas, through real prices and a PDF
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Import** | `import pandas as pd` | load the table toolbox, call it `pd` | prices, returns |
+| **DataFrame** | `pd.read_excel("peers.xlsx", index_col="Date")` | a table: index, columns, rows | five years of prices |
+| **Index** | `prices.index` | the labels of the rows (here, dates) | one row per trading day |
+| **Column** | `prices["AAPL"]` | one column, by name | one stock |
+| **Row by label** | `prices.loc["2026-11-13"]` | one row, by its date | one day, all stocks |
+| **Row by position** | `prices.iloc[0]`, `prices.iloc[-1]` | one row, by position (from 0; -1 is the last) | the first and the last day |
+| **Method** | `prices.pct_change().dropna()` | an action on the table, chained one after the other | daily returns |
+| **Statistic per column** | `returns.std()`, `returns.corr()`, `returns.cov()` | one result per stock | volatility, correlation, covariance |
+| **Resample** | `prices.resample("YE").last()` | one row per year | yearly returns |
+| **Rolling window** | `returns.rolling(63).std()` | the last 63 rows, moving one day at a time | risk over time |
+| **Chart** | `rebased.plot()` | one line per column | the backtest chart |
+| **Export** | `vol.to_excel("vol.xlsx")` | write an Excel file | send it to the MD |
+| **DataFrame from columns** | `pd.DataFrame({"Volatility": vol, "Beta": beta})` | one column per key of the dictionary, one row per stock | the risk table |
+| **Sort** | `table.sort_values("Sharpe", ascending=False)` | best first | rank by risk-adjusted return |
+| **Round** | `table.round(3)` | a shorter copy of the table (0.196 is 19.6%) | a readable table |
+| **Dates, day first** | `pd.read_csv("file.csv", parse_dates=["Date"], dayfirst=True)` | read `01/02/2024` as 1 February | European dates |
+
+### Text methods: reading a PDF
+
+A PDF gives text, line by line. These tools turn it into numbers.
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Library** | `import pymupdf`, `doc = pymupdf.open("file.pdf")` | open a PDF; `doc[0]` is page 1 | a company statement |
+| **`.splitlines()`** | `doc[0].get_text().splitlines()` | cut the text into a list of lines | one value per line |
+| **`.strip()`** | `line.strip()` | remove invisible spaces at both ends | clean lines |
+| **`.replace()`** | `"73,716".replace(",", "")` | replace a piece of text by another (here, remove it) | remove commas and `$` |
+| **`int()`** | `int("73716")` | turn text into a whole number | a number you can add |
+| **`list.index()`** | `lines.index("Services")` | the position of the first match | find a label |
+
+### Error types you can now read
+
+| Error type | Meaning | Example |
+|---|---|---|
+| `KeyError` | no column or row with that name | `prices["Apple"]`: the column is `AAPL` |

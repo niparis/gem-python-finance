@@ -23,3 +23,14 @@ How to know a number is right. One page, one section per session. Use it before 
    Example: weights sum to 1 and the vol is 12.0%, below every single fund. But fund C is at -22%: a short position the client cannot take.
 8. **Brute force against the clever method.** Try a slow, simple method and compare with the fast one. If they disagree, find the difference.
    Example: the formula gives 72 / 50 / -22 at 12.0%. A loop over 5,151 long-only portfolios gives 65 / 35 / 0 at 12.56%. The spec decided the answer.
+
+## Session 3
+
+9. **Check the dates: first, last, count, oldest first.** Dates fail silently: a wrong format gives no error, only a wrong answer. Many data exports are newest first, and `.pct_change()` then computes every return backwards.
+   Example: `01/02/2024` read month-first is 2 January: all twelve months land in January and the second half of 2024 has 0 rows. With `dayfirst=True`: first date 1 January, last date 1 December, 12 rows. Newest first: Apple's average daily return is -0.055% instead of +0.087%.
+10. **Know the source's units and conventions.** Which column, which units, how many days in a year.
+    Example: annual volatility is `std() * 252 ** 0.5`: 252 returns a year, 28.1% for Apple, not 33.8% with 365. Apple's statement is "in millions": 73,716 is 73.7 billion dollars.
+11. **The parts must add up to the total.** Most reports print their own total. Your parts must reproduce it.
+    Example: Products 73,716 + Services 28,750 = 102,466, the total net sales printed in the PDF. A reader that took last year's column (24,972) gives 98,688 and fails the check.
+12. **Two sources must agree.** Two independent sources of the same number: if they differ, find out why.
+    Example: the twelve-month total in Apple's PDF, 416,161, equals Apple's FY2025 revenue in the SEC data.
