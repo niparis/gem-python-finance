@@ -20,6 +20,16 @@ Data files are in `data/`. The notebooks load them directly from this repo.
 | 3 | 3a pandas on real prices: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-3/3a_pandas_on_real_prices.ipynb)<br>3b The risk table: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-3/3b_risk_table.ipynb)<br>3c Read the PDF: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-3/3c_read_the_pdf.ipynb) |
 | 4 | 4a Goal Seek in Python: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-4/4a_goal_seek_in_python.ipynb)<br>4b Debt capacity: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-4/4b_debt_capacity.ipynb)<br>4c The long-only portfolio: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/niparis/gem-python-finance/blob/main/session-4/4c_long_only_portfolio.ipynb) |
 
+## Homework
+
+Individual, 40% of the grade. Due dates and submission on Moodle.
+
+| Homework | After | Instructions |
+|---|---|---|
+| 1 | Session 3 | [Update ten pitchbooks with Python](homework/homework-1.md) |
+| 2 | Session 4 | [What is the option to expand worth?](homework/homework-2.md) |
+| 3 | The first projects | [Is Apple's EPS growth real?](homework/homework-3.md) |
+
 ## Cards
 
 Two one-page references. A new section is added every session.
