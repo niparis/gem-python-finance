@@ -123,3 +123,32 @@ A PDF gives text, line by line. These tools turn it into numbers.
 | Error type | Meaning | Example |
 |---|---|---|
 | `KeyError` | no column or row with that name | `prices["Apple"]`: the column is `AAPL` |
+
+## Session 4: solvers, to solve for the number
+
+The one new idea: **a function can be an input to another function.** You hand over the question; the solver asks it many times.
+
+| Python name | You write | It means | Finance use |
+|---|---|---|---|
+| **Import from a module** | `from scipy.optimize import brentq, minimize` | take two tools from the SciPy toolbox | the solvers |
+| **Function of the unknown** | `def npv_at(r): return cash_flows[0] + discount(cash_flows[1:], r)` | a function with only the unknown as input | the question for the solver |
+| **Function as an input** | `brentq(npv_at, 0, 1)` | no brackets after `npv_at`: you pass the function, not its result | the IRR |
+| **Bracket** | the `0, 1` in `brentq(npv_at, 0, 1)` | search between these two values; the function must change sign between them | between 0% and 100% |
+| **Bisection** | `for step in range(30): mid = (low + high) / 2 ...` | a loop that halves the interval each time | Goal Seek by hand |
+| **Gap function** | `def gap(debt): return min(dscr(debt)) - covenant` | zero exactly at the answer | the covenant |
+| **Change an input, re-run** | `covenant = 1.5`, then `brentq(gap, 1, 500)` again | a function reads a variable's value at the moment it runs | a stricter covenant |
+| **`min()`** | `min(dscr(debt))` | the smallest value: the worst year | "1.25x in every year" |
+| **Array of years** | `np.arange(1, 6)` | 1, 2, 3, 4, 5 | one value per year at once |
+| **`minimize`** | `minimize(port_vol, w0, bounds=..., constraints=...)` | find the inputs that make a function as small as possible | the least risky mix |
+| **Starting point** | `w0 = np.array([1/3, 1/3, 1/3])` | where the solver starts walking | equal weights |
+| **Bounds** | `bounds=[(0, 1)] * 3` | each weight between 0 and 1 (Session 2: a list `* 3` repeats it) | no shorting |
+| **Constraint dictionary** | `{"type": "eq", "fun": fully_invested}` | a rule the answer must meet: `fully_invested(w)` must equal 0 | weights sum to 1 |
+| **Result** | `result.x`, `result.fun`, `result.success` | the answer, the value at the answer, did it work? | weights, volatility, status |
+| **Package install** | `!pip install numpy-financial` | add a toolbox to Colab | `npf` |
+| **Financial functions** | `npf.irr(cf)`, `npf.mirr(cf, 0.08, 0.08)` | Excel's IRR and MIRR | a second opinion |
+
+### Error types you can now read
+
+| Error type | Meaning | Example |
+|---|---|---|
+| `ValueError: f(a) and f(b) must have different signs` | the function has the same sign at both ends of the bracket: no zero to find between them | `brentq(npv_at, 0.10, 0.50)`: the NPV is negative at 10% and at 50% |

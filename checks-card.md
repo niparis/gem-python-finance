@@ -34,3 +34,14 @@ How to know a number is right. One page, one section per session. Use it before 
     Example: Products 73,716 + Services 28,750 = 102,466, the total net sales printed in the PDF. A reader that took last year's column (24,972) gives 98,688 and fails the check.
 12. **Two sources must agree.** Two independent sources of the same number: if they differ, find out why.
     Example: the twelve-month total in Apple's PDF, 416,161, equals Apple's FY2025 revenue in the SEC data.
+
+## Session 4
+
+13. **A solver gives one answer: ask if there are others.** Plot the function, try other brackets or starting points.
+    Example: the mine (-17,000, then 16,000 for four years, then -52,000) has two IRRs, 6.77% and 65.4%. `npf.irr` shows only the first, with no warning. When the cash flows change sign more than once, decide with the NPV (+604 at 8%: invest).
+14. **Read the solver's status, not only its number.** Every solver says whether it worked.
+    Example: `minimize(port_vol, w0)` with no constraint returns weights 0 / 0 / 0 and a volatility of 0%: "invest nothing". `result.success` is False.
+15. **Solve a simple version by hand.** Find a case small enough to do on paper, or in Excel with Goal Seek.
+    Example: debt capacity, year 1 only: 15.75 / (1.25 x (1/5 + 7%)) = 46.67, the same as `brentq`. But check every year: with a downturn in year 2, the right answer is 38.76.
+16. **Is it plausible?** An optimizer pushes hardest on your weakest input. Every check can pass and the answer can still be useless.
+    Example: the best risk-adjusted mix of the five mega-caps puts 83% in Apple, because Apple did best in the last five years. Past returns are not forecasts.
