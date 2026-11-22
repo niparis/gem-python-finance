@@ -30,7 +30,7 @@ It grows every session. Before you send a number, pick two or three checks that 
 
 6. **Same seed, same answer.**
    Random results change every run unless you fix the seed. If nobody can reproduce your number, nobody can check it, including you next week.
-   *In class:* with `np.random.default_rng(42)` the chance of a loss is 43.5% every time. Without a seed: 43.5%, then 44.4%, then 43.8%.
+   *In class:* with `np.random.default_rng(42)` the chance of a loss is 40.5% every time. Without a seed: 40.5%, then 41.3%, then 39.8%.
 
 7. **Check the rules, not only the number.**
    A result can look great and still break a rule of the real world. Read the inputs the code chose, not just the headline output.
