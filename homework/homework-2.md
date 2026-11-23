@@ -11,7 +11,7 @@ A plain NPV assumes the company decides everything today. In real life it can wa
 
 **What you need:** functions and NPV (Session 1), random numbers with a seed and arrays (Session 2), annual volatility from prices (Session 3). New: `np.exp`, and the option payoff, explained below.
 
-**AI:** allowed. Explain every line in a comment, in your own words.
+**AI:** allowed. You own the numbers: your checks must pass, and you say what the code assumes.
 
 Put each question under its own markdown heading (`### Question 3`).
 

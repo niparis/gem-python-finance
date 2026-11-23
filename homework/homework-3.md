@@ -11,7 +11,7 @@ In Session 0 you saw a notebook pull Apple's diluted EPS from the SEC. This home
 
 **What you need:** reading a PDF (Session 3, notebook 3c), pandas (Session 3), the Session 0 demo notebook (you may start from it). New tools you will need are listed at the end, with examples.
 
-**AI:** allowed. Explain every line in a comment, in your own words. Copying AI code is not enough: your checks must pass and your email must answer the question.
+**AI:** allowed. You own the numbers. Copying AI code is not enough: your checks must pass and your email must answer the question.
 
 Put each part under its own markdown heading (`## Part 3`).
 
