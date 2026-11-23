@@ -26,8 +26,8 @@ It grows every session. Before you send a number, pick two or three checks that 
 
 5. **Use a case where you already know the answer.**
    Find a situation simple enough to answer in your head, run the code on it, and compare. If the code misses an answer you know, it will miss the ones you don't.
-   *In class:* if every correlation is 1, diversification does nothing, so the portfolio's volatility is the weighted average of the funds' vols: 21.5%. The AI's code in 2b gave 46.4%: one `np.diag(vol)` was missing.
-   A **range check** works the same way: a weighted average must sit between the smallest and the largest value. A portfolio return of 2.5% from funds returning 5% to 9% is impossible.
+   *In class:* if every correlation is 1, diversification does nothing, so the portfolio's volatility is the weighted average of the funds' vols: 21.5%.
+   A **range check** works the same way: know the usual range, and check **every line**, not only the total. *In class:* real AI code on a raw terminal export gave a plausible 19.2% for the portfolio, but 139% volatility for Alphabet. Cause: prices not adjusted for a 20-for-1 split. Use adjusted prices.
 
 6. **Same seed, same answer.**
    Random results change every run unless you fix the seed. If nobody can reproduce your number, nobody can check it, including you next week.
